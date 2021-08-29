@@ -10,7 +10,7 @@ The script (a shortened version) and the dataset that I provide in this reposito
 
 I hope this material is useful for you. If you want to find out more about our work, or have any question or doubt, please e-mail me: sherreral@aragon.es
 
-### The R packages used in this repository are shown below:
+### The R packages used in this repository
 
 - adegenet: https://cran.r-project.org/web/packages/adegenet/adegenet.pdf
 - hierfstat: https://cran.r-project.org/web/packages/hierfstat/hierfstat.pdf
@@ -22,7 +22,7 @@ I hope this material is useful for you. If you want to find out more about our w
 - ape: https://cran.r-project.org/web/packages/ape/index.html
 - ggplot: https://cran.r-project.org/web/packages/ggplot2/index.html
 
--Note that this file is subject to frequent changes.
+Note that the contents of this files may be subject to changes.
 
 ### Publications
 
