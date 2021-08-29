@@ -42,20 +42,20 @@ pop(datos_ssr_genind) <- as.character(datos_ssr$Source)
 seppop(datos_ssr_genind) %>% lapply(summary) ## Number of alleles (Na), observed heterozygosity (Ho) and expected heterozygosity (He) of the dataset
 
 stats<-basic.stats(datos_ssr_genind) 
-stats$Fis # Inbreeding coefficient (Fis)
+stats$Fis ## Inbreeding coefficient (Fis)
 
-seppop(datos_ssr_genind) %>% lapply(hw.test, B = 1000) #HW per locus
+seppop(datos_ssr_genind) %>% lapply(hw.test, B = 1000) ## HW per locus
 
-allel.rich(datos_ssr_genind) # Allelic richness (Ar)
+allel.rich(datos_ssr_genind) ## Allelic richness (Ar)
 
-x<-allele.dist(datos_ssr_genind) # Private alleles (Pa)
+x<-allele.dist(datos_ssr_genind) ## Private alleles (Pa)
 x$private.alleles
 
 ## Pairwise Fst
 hierf <- genind2hierfstat(datos_ssr_genind) 
 pairwise.neifst(hierf)
 set.seed(99999)
-boot.ppfst(datos_ssr_genind, 1000, quant=c(0.001,0.999),diploid=TRUE)
+boot.ppfst(datos_ssr_genind, 1000, quant=c(0.001,0.999),diploid=TRUE) # Test for significance
 
 
 # 2. AMOVA
@@ -129,7 +129,7 @@ scatter(dapcgraf, posi.da="bottomright", scree.pca=TRUE, posi.pca="bottomleft", 
 ## 6.4. Barplot
 
 table_dapcgraf<-as.data.frame(dapcgraf$posterior) #Indicates the proportions of successful reassignment (based on the discriminant functions) of individuals to their original clusters
-write.table(table_dapcgraf, sep = "/", file = "~/Table_prob_DAPC.csv") #Export membership probabilities values in an excell file
+write.table(table_dapcgraf, sep = "/", file = "~/Table_prob_DAPC.csv") #Export membership probabilities values in an excel file
 
 ## 6.5. Corrplot of pairwise FST values
 
@@ -143,6 +143,6 @@ fst_clusters<-pairwise.neifst(hierf_clusters)
 corrplot(fst_clusters, method = 'shade', order = 'alphabet', diag= FALSE, addCoef.col = 'black', tl.pos = 'lt', col.lim = c(0, 0.4), number.font = 1, cl.cex=1.4, cl.ratio = 0.15, number.cex=1.7, na.label ="-", tl.col = 'black', number.digits = 2, col = col3(100))
 
 set.seed(99999)
-boot_fst<-boot.ppfst(datos_ssr_genind_clusters, 1000, quant=c(0.001,0.999),diploid=TRUE)
+boot_fst<-boot.ppfst(datos_ssr_genind_clusters, 1000, quant=c(0.001,0.999),diploid=TRUE) # Test for significance
 
 
